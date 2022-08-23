@@ -25,7 +25,7 @@ int main()
 void menu()
 {
 	int op = 0;
-	while (op != 7) {
+	while (op != 6) {
 		system("cls"); // somente no windows
 		cout << "Menu Lista Linear";
 		cout << endl << endl;
@@ -101,6 +101,7 @@ void inserirElemento()
 
 }
 
+// deve ser implementada como resposta ao exercicio
 void buscarElemento()
 {
 
