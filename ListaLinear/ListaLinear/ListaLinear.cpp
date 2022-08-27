@@ -12,7 +12,7 @@ void buscarElemento();
 //--------------------------
 
 
-const int MAX = 2;;
+const int MAX = 10;
 int lista[MAX]{};
 int nElementos = 0;
 
@@ -103,5 +103,20 @@ void inserirElemento()
 
 void buscarElemento()
 {
-
+	int y = 0;
+	int z = -1;
+	cout << "digite o numero de sua escolha:";
+	cin >> y;
+	for (int n = 0; n < nElementos; n++)
+	{
+		int valor = lista[n];
+		if(y == valor)
+		{
+			z = n;
+			cout << "a posicao e:" << z << endl;
+		}
+	}
+	if (z == -1) {
+		cout << "elemento não encontrado" << endl;
+	}
 }
