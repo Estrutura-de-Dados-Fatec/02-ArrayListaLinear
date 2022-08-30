@@ -10,6 +10,7 @@ void exibirElementos();
 void inserirElemento();
 int posicaoElemento();
 void buscarElemento();
+void exluirElemento();
 //--------------------------
 
 
@@ -35,7 +36,8 @@ void menu()
 		cout << "3 - Exibir elementos \n";
 		cout << "4 - Buscar elemento \n";
 		cout << "5 - Inserir elemento \n";
-		cout << "6 - Sair \n\n";
+		cout << "6 - Excluir elemento \n";
+		cout << "7 - Sair \n\n";
 
 		cout << "Opcao: ";
 		cin >> op;
@@ -52,7 +54,9 @@ void menu()
 			break;
 		case 5: inserirElemento();
 			break;
-		case 6:
+		case 6: excluirElemento();
+			break;
+		case 7:
 			return;
 		default:
 			break;
@@ -91,10 +95,19 @@ void exibirElementos()
 
 void inserirElemento()
 {
+	int pos;
+	int num;
 	if (nElementos < MAX) {
 		cout << "Digite o elemento: ";
-		cin >> lista[nElementos];
-		nElementos++;
+		cin >> num;
+
+		pos = posicaoElemento(num);
+		if (pos != -1) {
+			cout << "O número já está na lista.";
+		} else {
+			lista[nElementos] = num;
+			nElementos++;
+		}
 	}
 	else {
 		cout << "Lista cheia";
@@ -129,5 +142,25 @@ void buscarElemento()
 		cout << "O elemento " << elemento << " está na posição: " << pos << endl;
 	} else {
 		cout << "O elemento não foi encontrado.";
+	}
+}
+
+void excluirElemento() {
+	int elemento;
+	int pos;
+	
+	cout << "Digite o elemento a ser excluído: ";
+	cin >> elemento;
+
+	pos = posicaoElemento(elemento);
+
+	if(pos != -1){
+		for (int i = lista[pos]; i < lista[nElementos]; i++)
+		{
+			lista[i] = lista[i+1];
+		}
+		nElementos--;
+	} else {
+		cout << "O elemento não está presente na lista.";
 	}
 }
