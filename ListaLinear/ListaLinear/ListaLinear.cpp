@@ -8,11 +8,12 @@ void inicializar();
 void exibirQuantidadeElementos();
 void exibirElementos();
 void inserirElemento();
+int posicaoElemento();
 void buscarElemento();
 //--------------------------
 
 
-const int MAX = 2;;
+const int MAX = 4;
 int lista[MAX]{};
 int nElementos = 0;
 
@@ -101,8 +102,32 @@ void inserirElemento()
 
 }
 
+int posicaoElemento(int num) {
+	int pos = -1;
+
+	for (int i = 0; i < nElementos; i++) {
+		if (num == lista[i]) {
+			pos = i;
+		}	
+	}
+
+	return pos;
+}
+
 // deve ser implementada como resposta ao exercicio
 void buscarElemento()
 {
+	int elemento;
+	int pos;
 
+	cout << "Digite o elemento a ser buscado: ";
+	cin >> elemento;
+
+	pos = posicaoElemento(elemento);
+
+	if (pos != -1) {
+		cout << "O elemento " << elemento << " está na posição: " << pos << endl;
+	} else {
+		cout << "O elemento não foi encontrado.";
+	}
 }
