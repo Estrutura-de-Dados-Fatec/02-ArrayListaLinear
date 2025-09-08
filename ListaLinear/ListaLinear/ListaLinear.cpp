@@ -1,6 +1,7 @@
-// Claudio Souza Nunes
+// Claudio Souza Nunes - Exercício Nayla Lopes
 
 #include <iostream>
+#include<locale>
 using namespace std;
 
 // headers
@@ -20,6 +21,7 @@ int nElementos = 0;
 
 int main()
 {
+	setlocale(LC_ALL, "portuguese");
 	menu();
 }
 
@@ -79,7 +81,7 @@ void exibirElementos()
 {
 	if (nElementos == 0)
 	{
-		cout << " A lista esta vazia \n";
+		cout << " A lista está vazia \n";
 	}
 	else {
 		cout << "Elementos: \n";
@@ -105,5 +107,21 @@ void inserirElemento()
 // deve ser implementada como resposta ao exercicio
 void buscarElemento()
 {
+	bool encontrado = false;
+	int numeroDigitado;
+	cout << "Digite um número para adicionar à lista: ";
+	cin >> numeroDigitado;
 
+	for (int i = 0; i < nElementos; i++)
+	{
+		if (lista[i] == numeroDigitado) 
+		{
+			cout << "O número foi encontrado na posição: " << i << endl;
+			encontrado = true;
+
+		}
+	}
+	if(encontrado == false)		{
+		cout << "Não foi encontrado um número compatível. ";
+		}
 }
